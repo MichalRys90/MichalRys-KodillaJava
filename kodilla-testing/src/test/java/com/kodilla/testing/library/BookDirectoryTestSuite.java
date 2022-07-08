@@ -132,4 +132,46 @@ public class BookDirectoryTestSuite {
             assertEquals(5, resultListForFiveBooks.size());
         }
 
+    @Test
+    void test_For_Rent_A_Book () {
+        // Given
+        LibraryUser user = new LibraryUser("firstName", "lastName", "pedelID");
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> listBook = new ArrayList<>();
+        Book book = new Book("title","author", 1990);
+        Book book1 = new Book("title1","author1", 1991);
+        listBook.add(book);
+        boolean isTrue = true;
+        boolean isFalse = false;
+        when(libraryDatabaseMock.rentABook(user, book)).thenReturn(isFalse);
+        when(libraryDatabaseMock.rentABook(user, book1)).thenReturn(isTrue);
+
+        // When
+        boolean result1 = bookLibrary.rentABook(user, book);
+        boolean result2 = bookLibrary.rentABook(user, book1);
+
+        // Then
+        assertEquals(false, result1);
+        assertEquals(true, result2);
+    }
+    @Test
+    void test_For_Return_A_Book () {
+        // Given
+        LibraryUser user = new LibraryUser("firstName", "lastName", "pedelID");
+        LibraryUser user1 = new LibraryUser("firstName1", "lastName1", "pedelID1");
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> listBookInHandsOfFiveBooks = generateListOfNBooks(5);
+        List<Book> listBookInHandsOfSevenBooks = generateListOfNBooks(7);
+        when(libraryDatabaseMock.returnBooks(user)).thenReturn(listBookInHandsOfFiveBooks.size());
+        when(libraryDatabaseMock.returnBooks(user1)).thenReturn(listBookInHandsOfSevenBooks.size());
+
+        // When
+        int result1 = bookLibrary.returnBooks(user);
+        int result2 = bookLibrary.returnBooks(user1);
+
+        // Then
+        assertEquals(4, result1);
+        assertEquals(6, result2);
+    }
+
     }

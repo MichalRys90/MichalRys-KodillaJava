@@ -7,10 +7,10 @@ import java.util.Map;
 
 public class BookLibrary {
     private LibraryDatabase libraryDatabase;
-    private Map<Book, LibraryUser> usersBook = new HashMap<Book, LibraryUser>();
 
 
     public BookLibrary(LibraryDatabase libraryDatabase) {
+
         this.libraryDatabase = libraryDatabase;
     }
 
@@ -29,11 +29,23 @@ public class BookLibrary {
     }
 
     public boolean rentABook(LibraryUser libraryUser, Book book) {
-        return false;
+        if (!libraryDatabase.rentABook(libraryUser, book)) {
+            return false;
+        }
+        else if (listBooksInHandsOf(libraryUser).contains(book)) {
+            return false;
+        }
+        else if (listBooksInHandsOf(libraryUser).size() >= 5) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     public int returnBooks(LibraryUser libraryUser) {
-        return 0;
+        int result = libraryDatabase.returnBooks(libraryUser) -1;
+        return result;
     }
 
 }
