@@ -1,6 +1,8 @@
 package com.kodilla.rps.games;
 
 import com.kodilla.rps.moves.ComputerMove;
+import com.kodilla.rps.moves.PlayerMove;
+
 import static com.kodilla.rps.Strings.howManyGames;
 import static com.kodilla.rps.Strings.gameRules;
 import static com.kodilla.rps.names.PlayerName.name;
@@ -9,6 +11,7 @@ import java.util.Scanner;
 
 public class Game {
     public void game() {
+        PlayerMove playerMove = new PlayerMove();
         ComputerMove computerMove = new ComputerMove();
         Scanner scanner = new Scanner(System.in);
         boolean game = true;
@@ -24,40 +27,29 @@ public class Game {
             while ((game1) && (computerScore < howManyGames) && (playerScore < howManyGames)) {
                 System.out.println("The current result is: \n" + name + " " + playerScore + " Computer " + computerScore);
                 System.out.println("\n\nYour move");
-                int i = scanner.next().charAt(0);
+                String userMove = playerMove.playerTurn();
                 String compMove = computerMove.computerTurn();
-                if ((i == '1') && (compMove.equals("Rock"))) {
-                    System.out.println("Draw you and the computer chose the rock!");
-                } else if ((i == '1') && (compMove.equals("Paper"))) {
-                    System.out.println("You lose! Computer chose paper");
+                if (((userMove.equals("Rock")) && (compMove.equals("Paper"))) ||
+                        ((userMove.equals("Paper")) && (compMove.equals("Scissors"))) ||
+                        ((userMove.equals("Scissors")) && (compMove.equals("Rock")))) {
+                    System.out.println("You lose! Computer chose " + compMove);
                     computerScore++;
-                } else if ((i == '1') && (compMove.equals("Scissors"))) {
-                    System.out.println("You won! Computer chose scissors");
+                } else if (((userMove.equals("Rock")) && (compMove.equals("Scissors"))) ||
+                        ((userMove.equals("Paper")) && (compMove.equals("Rock"))) ||
+                        ((userMove.equals("Scissors")) && (compMove.equals("Paper")))) {
+                    System.out.println("You won! Computer chose " + compMove);
                     playerScore++;
-                } else if ((i == '2') && (compMove.equals("Rock"))) {
-                    System.out.println("You won! Computer chose rock");
-                    playerScore++;
-                } else if ((i == '2') && (compMove.equals("Paper"))) {
-                    System.out.println("Draw you and the computer chose the paper!");
-                } else if ((i) == '2' && (compMove.equals("Scissors"))) {
-                    System.out.println("You lose! Computer chose scissors");
-                    computerScore++;
-                } else if ((i) == '3' && (compMove.equals("Rock"))) {
-                    System.out.println("You lose! Computer chose rock");
-                    computerScore++;
-                } else if ((i) == '3' && (compMove.equals("Paper"))) {
-                    System.out.println("You won! Computer chose paper");
-                    playerScore++;
-                } else if ((i) == '3' && (compMove.equals("Scissors"))) {
-                    System.out.println("Draw you and the computer chose the scissors!");
-                } else if (i == 'x') {
+                } else {
+                    System.out.println("Draw you chose " + userMove + " Computer chose " + compMove);
+                }
+                if (userMove == "x") {
                     System.out.println("Are you sure you want to quit the game? y = yes");
                     int y = scanner.next().charAt(0);
                     if (y == 'y') {
                         game1 = false;
                         game = false;
                     }
-                } else if (i == 'n') {
+                } else if (userMove == "n") {
                     System.out.println("Are you sure you want to start the game over? y = yes");
                     int y = scanner.next().charAt(0);
                     if (y == 'y') {

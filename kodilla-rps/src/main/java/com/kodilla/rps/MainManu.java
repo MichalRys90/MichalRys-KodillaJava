@@ -1,4 +1,5 @@
 package com.kodilla.rps;
+
 import com.kodilla.rps.games.EasyGame;
 import com.kodilla.rps.games.Game;
 import com.kodilla.rps.games.HardGame;
@@ -18,7 +19,8 @@ public class MainManu {
     HardGame hardGame = new HardGame();
     LizardAndSpoke lizardAndSpoke = new LizardAndSpoke();
     PlayerName playerName = new PlayerName();
-    public void interfejs(){
+
+    public void interfejs() {
         System.out.println(giveName);
         playerName.getName();
         System.out.println(hello);
@@ -26,23 +28,23 @@ public class MainManu {
         int i = scanner.next().charAt(0);
         switch (i) {
 
-            case '1' :
+            case '1':
                 game.game();
                 break;
 
-            case '2' :
+            case '2':
                 easyGame.easyGame();
                 break;
 
-            case '3' :
+            case '3':
                 hardGame.hardGame();
                 break;
-            case '4' :
+            case '4':
                 lizardAndSpoke.gameSpock();
                 break;
 
-            default: System.out.println("Not a defined operation");
+            default:
+                System.out.println("Not a defined operation");
         }
     }
-
 }

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RpsTest {
     @Test
-    void TestMoves() {
+    void TestComputerMoves() {
         //Given
         ComputerMove computerMove = new ComputerMove();
 

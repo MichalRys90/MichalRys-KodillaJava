@@ -1,11 +1,19 @@
 package com.kodilla.rps;
 
+import com.kodilla.rps.moves.ComputerMove;
+import com.kodilla.rps.moves.PlayerMove;
+
+
 import java.util.Random;
 import java.util.Scanner;
+// This class is only FOR TEST!!!!!!
+// This class is only FOR TEST!!!!!!
+// This class is only FOR TEST!!!!!!
 
 public class Body {
     public void startGame() {
-        Random random = new Random();
+        ComputerMove computerMove = new ComputerMove();
+        PlayerMove playerMove = new PlayerMove();
         System.out.println("Give your name");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
@@ -19,32 +27,20 @@ public class Body {
         int computerScore = 0;
         while ((game) && (computerScore < howManyGame) && (playerScore < howManyGame)) {
             System.out.println("The current result is: \n" + name + " " + playerScore + " Computer " + computerScore);
-            int i = scanner.next().charAt(0);
-            int n = random.nextInt(3) + 1;
-            if ((i == '1') && (n == 1)) {
-                System.out.println("Draw you and the computer chose the rock!");
-            } else if ((i == '1') && (n == 2)) {
+            String userMove = playerMove.playerTurn();
+            String compMove = computerMove.computerTurn();
+            if (((userMove.equals("Rock")) && (compMove.equals("Paper"))) ||
+                    ((userMove.equals("Paper")) && (compMove.equals("Scissors"))) ||
+                    ((userMove.equals("Scissors")) && (compMove.equals("Rock")))) {
                 System.out.println("You lose! Computer chose paper");
                 computerScore++;
-            } else if ((i == '1') && (n == 3)) {
-                System.out.println("You won! Computer chose scissors");
+            } else if (((userMove.equals("Rock")) && (compMove.equals("Scissors"))) ||
+                    ((userMove.equals("Paper")) && (compMove.equals("Rock"))) ||
+                    ((userMove.equals("Scissors")) && (compMove.equals("Paper")))) {
+                System.out.println("You won! Computer chose " + compMove);
                 playerScore++;
-            } else if ((i == '2') && (n == 1)) {
-                System.out.println("You won! Computer chose rock");
-                playerScore++;
-            } else if ((i == '2') && (n == 2)) {
-                System.out.println("Draw you and the computer chose the paper!");
-            } else if ((i) == '2' && (n == 3)) {
-                System.out.println("You lose! Computer chose scissors");
-                computerScore++;
-            } else if ((i) == '3' && (n == 1)) {
-                System.out.println("You lose! Computer chose rock");
-                computerScore++;
-            } else if ((i) == '3' && (n == 2)) {
-                System.out.println("You won! Computer chose scissors");
-                playerScore++;
-            } else if ((i) == '3' && (n == 3)) {
-                System.out.println("Draw you and the computer chose the scissors!");
+            } else {
+                System.out.println("Draw you chose " + userMove + " Computer chose " + compMove);
             }
         }
         if (computerScore > playerScore) {
