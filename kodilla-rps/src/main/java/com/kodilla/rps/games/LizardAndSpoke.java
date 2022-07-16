@@ -31,25 +31,25 @@ public class LizardAndSpoke {
                 if (((userMove.equals("Rock")) && (compMove.equals("Paper"))) ||
                         ((userMove.equals("Paper")) && (compMove.equals("Scissors"))) ||
                         ((userMove.equals("Scissors")) && (compMove.equals("Rock"))) ||
-                                ((userMove.equals("Lizard")) && (compMove.equals("Rock"))) ||
-                                ((userMove.equals("Spock")) && (compMove.equals("Lizard"))) ||
-                                ((userMove.equals("Scissors")) && (compMove.equals("Spock"))) ||
-                                ((userMove.equals("Lizard")) && (compMove.equals("Scissors"))) ||
-                                ((userMove.equals("Paper")) && (compMove.equals("Lizard"))) ||
-                                ((userMove.equals("Spock")) && (compMove.equals("Paper"))) ||
-                                ((userMove.equals("Rock")) && (compMove.equals("Spock")))) {
+                        ((userMove.equals("Lizard")) && (compMove.equals("Rock"))) ||
+                        ((userMove.equals("Spock")) && (compMove.equals("Lizard"))) ||
+                        ((userMove.equals("Scissors")) && (compMove.equals("Spock"))) ||
+                        ((userMove.equals("Lizard")) && (compMove.equals("Scissors"))) ||
+                        ((userMove.equals("Paper")) && (compMove.equals("Lizard"))) ||
+                        ((userMove.equals("Spock")) && (compMove.equals("Paper"))) ||
+                        ((userMove.equals("Rock")) && (compMove.equals("Spock")))) {
                     System.out.println("You lose! Computer chose " + compMove);
                     computerScore++;
                 } else if (((userMove.equals("Rock")) && (compMove.equals("Scissors"))) ||
                         ((userMove.equals("Paper")) && (compMove.equals("Rock"))) ||
                         ((userMove.equals("Scissors")) && (compMove.equals("Paper"))) ||
-                                ((userMove.equals("Rock")) && (compMove.equals("Lizard"))) ||
-                                ((userMove.equals("Lizard")) && (compMove.equals("Spock"))) ||
-                                ((userMove.equals("Spock")) && (compMove.equals("Scissors"))) ||
-                                ((userMove.equals("Scissors")) && (compMove.equals("Lizard"))) ||
-                                ((userMove.equals("Lizard")) && (compMove.equals("Paper"))) ||
-                                ((userMove.equals("Paper")) && (compMove.equals("Spock"))) ||
-                                ((userMove.equals("Spock")) && (compMove.equals("Rock")))) {
+                        ((userMove.equals("Rock")) && (compMove.equals("Lizard"))) ||
+                        ((userMove.equals("Lizard")) && (compMove.equals("Spock"))) ||
+                        ((userMove.equals("Spock")) && (compMove.equals("Scissors"))) ||
+                        ((userMove.equals("Scissors")) && (compMove.equals("Lizard"))) ||
+                        ((userMove.equals("Lizard")) && (compMove.equals("Paper"))) ||
+                        ((userMove.equals("Paper")) && (compMove.equals("Spock"))) ||
+                        ((userMove.equals("Spock")) && (compMove.equals("Rock")))) {
                     System.out.println("You won! Computer chose " + compMove);
                     playerScore++;
                 } else {
