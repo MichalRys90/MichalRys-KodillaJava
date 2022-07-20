@@ -2,6 +2,7 @@ package com.kodilla.rps.games;
 
 import com.kodilla.rps.moves.ComputerMovesToSpock;
 import com.kodilla.rps.moves.PlayerMoveToSpock;
+import com.kodilla.rps.names.HowManyGames;
 
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class LizardAndSpoke {
     public void gameSpock() {
         PlayerMoveToSpock playerMoveToSpock = new PlayerMoveToSpock();
         ComputerMovesToSpock computerMovesToSpock = new ComputerMovesToSpock();
+        HowManyGames howManyGames1 = new HowManyGames();
         Scanner scanner = new Scanner(System.in);
         boolean game = true;
         int playerScore;
@@ -19,7 +21,7 @@ public class LizardAndSpoke {
         System.out.println(gameRulesForSpock);
         while (game) {
             System.out.println(howManyGames);
-            int howManyGames = scanner.nextInt();
+            int howManyGames = howManyGames1.howManyGames();
             boolean game1 = true;
             computerScore = 0;
             playerScore = 0;
@@ -28,6 +30,20 @@ public class LizardAndSpoke {
                 System.out.println("Your move");
                 String userMove = playerMoveToSpock.spockPlayerTurn();
                 String compMove = computerMovesToSpock.computerTurnSpock();
+                if (userMove == "x") {
+                    System.out.println("Are you sure you want to quit the game? y = yes");
+                    int y = scanner.next().charAt(0);
+                    if (y == 'y') {
+                        game1 = false;
+                        game = false;
+                    }
+                } else if (userMove == "n") {
+                    System.out.println("Are you sure you want to start the game over? y = yes");
+                    int y = scanner.next().charAt(0);
+                    if (y == 'y') {
+                        game1 = false;
+                    }
+                }
                 if (((userMove.equals("Rock")) && (compMove.equals("Paper"))) ||
                         ((userMove.equals("Paper")) && (compMove.equals("Scissors"))) ||
                         ((userMove.equals("Scissors")) && (compMove.equals("Rock"))) ||
@@ -54,20 +70,6 @@ public class LizardAndSpoke {
                     playerScore++;
                 } else {
                     System.out.println("Draw you chose " + userMove + " Computer chose " + compMove);
-                }
-                if (userMove == "x") {
-                    System.out.println("Are you sure you want to quit the game? y = yes");
-                    int y = scanner.next().charAt(0);
-                    if (y == 'y') {
-                        game1 = false;
-                        game = false;
-                    }
-                } else if (userMove == "n") {
-                    System.out.println("Are you sure you want to start the game over? y = yes");
-                    int y = scanner.next().charAt(0);
-                    if (y == 'y') {
-                        game1 = false;
-                    }
                 }
                 if (computerScore == howManyGames) {
                     System.out.println("Game over COMPUTER WON\nThe current result is: \n" +

@@ -2,6 +2,7 @@ package com.kodilla.rps.games;
 
 import com.kodilla.rps.moves.ComputerMove;
 import com.kodilla.rps.moves.PlayerMove;
+import com.kodilla.rps.names.HowManyGames;
 
 import static com.kodilla.rps.Strings.howManyGames;
 import static com.kodilla.rps.Strings.gameRules;
@@ -13,6 +14,7 @@ public class Game {
     public void game() {
         PlayerMove playerMove = new PlayerMove();
         ComputerMove computerMove = new ComputerMove();
+        HowManyGames howManyGames1 = new HowManyGames();
         Scanner scanner = new Scanner(System.in);
         boolean game = true;
         int playerScore;
@@ -20,7 +22,7 @@ public class Game {
         System.out.println(gameRules);
         while (game) {
             System.out.println(howManyGames);
-            int howManyGames = scanner.nextInt();
+            int howManyGames = howManyGames1.howManyGames();
             boolean game1 = true;
             computerScore = 0;
             playerScore = 0;
@@ -29,19 +31,6 @@ public class Game {
                 System.out.println("\n\nYour move");
                 String userMove = playerMove.playerTurn();
                 String compMove = computerMove.computerTurn();
-                if (((userMove.equals("Rock")) && (compMove.equals("Paper"))) ||
-                        ((userMove.equals("Paper")) && (compMove.equals("Scissors"))) ||
-                        ((userMove.equals("Scissors")) && (compMove.equals("Rock")))) {
-                    System.out.println("You lose! Computer chose " + compMove);
-                    computerScore++;
-                } else if (((userMove.equals("Rock")) && (compMove.equals("Scissors"))) ||
-                        ((userMove.equals("Paper")) && (compMove.equals("Rock"))) ||
-                        ((userMove.equals("Scissors")) && (compMove.equals("Paper")))) {
-                    System.out.println("You won! Computer chose " + compMove);
-                    playerScore++;
-                } else {
-                    System.out.println("Draw you chose " + userMove + " Computer chose " + compMove);
-                }
                 if (userMove == "x") {
                     System.out.println("Are you sure you want to quit the game? y = yes");
                     int y = scanner.next().charAt(0);
@@ -55,6 +44,19 @@ public class Game {
                     if (y == 'y') {
                         game1 = false;
                     }
+                }
+                if (((userMove.equals("Rock")) && (compMove.equals("Paper"))) ||
+                        ((userMove.equals("Paper")) && (compMove.equals("Scissors"))) ||
+                        ((userMove.equals("Scissors")) && (compMove.equals("Rock")))) {
+                    System.out.println("You lose! Computer chose " + compMove);
+                    computerScore++;
+                } else if (((userMove.equals("Rock")) && (compMove.equals("Scissors"))) ||
+                        ((userMove.equals("Paper")) && (compMove.equals("Rock"))) ||
+                        ((userMove.equals("Scissors")) && (compMove.equals("Paper")))) {
+                    System.out.println("You won! Computer chose " + compMove);
+                    playerScore++;
+                } else {
+                    System.out.println("Draw you chose " + userMove + " Computer chose " + compMove);
                 }
                 if (computerScore == howManyGames) {
                     System.out.println("Game over COMPUTER WON\nThe current result is: \n" +
