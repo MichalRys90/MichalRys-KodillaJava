@@ -1,6 +1,4 @@
-package com.kodilla.rps.names;
-
-import com.kodilla.rps.BadChoiceException;
+package com.kodilla.rps.exceptions;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -20,12 +18,11 @@ public class HowManyGames {
     public int howManyGames() {
         HowManyGames howManyGames = new HowManyGames();
         try {
-            int gamesHowMany1 = howManyGames.moreThanZero();
-            return gamesHowMany1;
+            return howManyGames.moreThanZero();
         } catch (InputMismatchException e) {
             System.out.println("You have to choose integer \n" + e);
         } catch (BadChoiceException e) {
-            System.out.println("Choose integer greater than 0");
+            System.out.println(e);
         }
         return 0;
     }

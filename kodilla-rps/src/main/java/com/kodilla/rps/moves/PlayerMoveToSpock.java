@@ -1,5 +1,7 @@
 package com.kodilla.rps.moves;
 
+import com.kodilla.rps.exceptions.BadChoiceException;
+
 import java.util.Scanner;
 
 import static com.kodilla.rps.names.Paper.paper;
@@ -13,7 +15,7 @@ public class PlayerMoveToSpock {
     Scanner scanner = new Scanner(System.in);
 
 
-    public String spockPlayerTurn() {
+    public String spockPlayerTurns() throws BadChoiceException {
         int n = scanner.next().charAt(0);
         if (n == '1') {
             playerMoveToSpock = rock;
@@ -30,8 +32,18 @@ public class PlayerMoveToSpock {
         } else if (n == 'x') {
             playerMoveToSpock = "x";
         } else {
-            playerMoveToSpock = "Bad choice";
+            throw new BadChoiceException("Bad choice");
         }
         return playerMoveToSpock;
+    }
+
+    public String spockPlayerTurn() throws BadChoiceException {
+        PlayerMoveToSpock playerMoveToSpock1 = new PlayerMoveToSpock();
+        try {
+            return playerMoveToSpock1.spockPlayerTurns();
+        } catch (BadChoiceException e) {
+            System.out.println(e);
+        }
+        return spockPlayerTurn();
     }
 }

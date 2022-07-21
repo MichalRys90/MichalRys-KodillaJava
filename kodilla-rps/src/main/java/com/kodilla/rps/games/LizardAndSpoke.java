@@ -1,19 +1,22 @@
 package com.kodilla.rps.games;
 
+import com.kodilla.rps.exceptions.BadChoiceException;
+import com.kodilla.rps.MainManu;
 import com.kodilla.rps.moves.ComputerMovesToSpock;
 import com.kodilla.rps.moves.PlayerMoveToSpock;
-import com.kodilla.rps.names.HowManyGames;
+import com.kodilla.rps.exceptions.HowManyGames;
 
 import java.util.Scanner;
 
-import static com.kodilla.rps.Strings.*;
+import static com.kodilla.rps.names.Strings.*;
 import static com.kodilla.rps.names.PlayerName.name;
 
 public class LizardAndSpoke {
-    public void gameSpock() {
+    public void gameSpock() throws BadChoiceException {
         PlayerMoveToSpock playerMoveToSpock = new PlayerMoveToSpock();
         ComputerMovesToSpock computerMovesToSpock = new ComputerMovesToSpock();
         HowManyGames howManyGames1 = new HowManyGames();
+        MainManu mainManu = new MainManu();
         Scanner scanner = new Scanner(System.in);
         boolean game = true;
         int playerScore;
@@ -36,6 +39,7 @@ public class LizardAndSpoke {
                     if (y == 'y') {
                         game1 = false;
                         game = false;
+                        mainManu.interfejs();
                     }
                 } else if (userMove == "n") {
                     System.out.println("Are you sure you want to start the game over? y = yes");

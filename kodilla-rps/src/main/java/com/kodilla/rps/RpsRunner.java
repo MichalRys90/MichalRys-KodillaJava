@@ -1,15 +1,13 @@
 package com.kodilla.rps;
 
-import java.util.Scanner;
+import com.kodilla.rps.exceptions.BadChoiceException;
 
 public class RpsRunner {
 
-    public static void main(String[] args) {
-//        Body body = new Body();
-//        body.startGame();
-//        Game game = new Game();
-//        game.game();
+    public static void main(String[] args) throws BadChoiceException {
+
         MainManu mainManu = new MainManu();
+        mainManu.interfejsFirst();
         mainManu.interfejs();
     }
 }

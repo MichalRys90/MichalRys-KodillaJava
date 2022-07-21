@@ -1,19 +1,22 @@
 package com.kodilla.rps.games;
 
+import com.kodilla.rps.exceptions.BadChoiceException;
+import com.kodilla.rps.MainManu;
 import com.kodilla.rps.moves.ComputerMove;
 import com.kodilla.rps.moves.PlayerMove;
-import com.kodilla.rps.names.HowManyGames;
+import com.kodilla.rps.exceptions.HowManyGames;
 
 import java.util.Random;
 import java.util.Scanner;
 
-import static com.kodilla.rps.Strings.gameRules;
-import static com.kodilla.rps.Strings.howManyGames;
+import static com.kodilla.rps.names.Strings.gameRules;
+import static com.kodilla.rps.names.Strings.howManyGames;
 import static com.kodilla.rps.names.PlayerName.name;
 
 public class HardGame {
-    public void hardGame() {
+    public void hardGame() throws BadChoiceException {
         PlayerMove playerMove = new PlayerMove();
+        MainManu mainManu = new MainManu();
         HowManyGames howManyGames1 = new HowManyGames();
         ComputerMove computerMove = new ComputerMove();
         Random random = new Random();
@@ -41,6 +44,7 @@ public class HardGame {
                         if (y == 'y') {
                             game1 = false;
                             game = false;
+                            mainManu.interfejs();
                         }
                     } else if (userMove == "n") {
                         System.out.println("Are you sure you want to start the game over? y = yes");
@@ -48,8 +52,7 @@ public class HardGame {
                         if (y == 'y') {
                             game1 = false;
                         }
-                    }
-                    if (((userMove.equals("Rock")) && (compMove.equals("Paper"))) ||
+                    } else if (((userMove.equals("Rock")) && (compMove.equals("Paper"))) ||
                             ((userMove.equals("Paper")) && (compMove.equals("Scissors"))) ||
                             ((userMove.equals("Scissors")) && (compMove.equals("Rock")))) {
                         System.out.println("You lose! Computer chose " + compMove);
@@ -99,6 +102,7 @@ public class HardGame {
                         if (y == 'y') {
                             game1 = false;
                             game = false;
+                            mainManu.interfejs();
                         }
                     } else if (i == 'n') {
                         System.out.println("Are you sure you want to start the game over? y = yes");

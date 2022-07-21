@@ -1,6 +1,7 @@
 package com.kodilla.rps.moves;
 
-import java.util.Random;
+import com.kodilla.rps.exceptions.BadChoiceException;
+
 import java.util.Scanner;
 
 import static com.kodilla.rps.names.Paper.paper;
@@ -12,12 +13,12 @@ public class PlayerMove {
     Scanner scanner = new Scanner(System.in);
 
 
-    public String playerTurn() {
-        int n = scanner.next().charAt(0);;
+    public String playerTurns() throws BadChoiceException {
+        int n = scanner.next().charAt(0);
         if (n == '1') {
             playerMove = rock;
         } else if (n == '2') {
-            playerMove= paper;
+            playerMove = paper;
         } else if (n == '3') {
             playerMove = scissors;
         } else if (n == 'n') {
@@ -25,8 +26,18 @@ public class PlayerMove {
         } else if (n == 'x') {
             playerMove = "x";
         } else {
-            playerMove = "Bad choice";
+            throw new BadChoiceException("Bad choice");
         }
         return playerMove;
+    }
+
+    public String playerTurn() throws BadChoiceException {
+        PlayerMove playerMove1 = new PlayerMove();
+        try {
+            return playerMove1.playerTurns();
+        } catch (BadChoiceException e) {
+            System.out.println(e);
+        }
+        return playerTurn();
     }
 }
