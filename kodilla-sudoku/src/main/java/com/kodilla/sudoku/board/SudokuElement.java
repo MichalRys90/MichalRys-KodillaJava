@@ -1,8 +1,8 @@
-package com.kodilla.sudoku;
+package com.kodilla.sudoku.board;
 
 public class SudokuElement {
 
-    private final int value;
+    private int value;
     public static int EMPTY = -1;
 
     public SudokuElement(int value) {
@@ -11,5 +11,9 @@ public class SudokuElement {
 
     public int getValue() {
         return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 }

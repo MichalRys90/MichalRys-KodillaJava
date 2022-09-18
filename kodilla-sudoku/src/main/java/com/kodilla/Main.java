@@ -1,14 +1,16 @@
 package com.kodilla;
 
-import com.kodilla.sudoku.SudokuGame;
+import com.kodilla.sudoku.game.Game;
+
 
 public class Main {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws CloneNotSupportedException {
 
         boolean gameFinished = false;
         while (!gameFinished) {
-            SudokuGame theGame = new SudokuGame();
-            gameFinished = theGame.resolveSudoku();
+            Game game = new Game();
+            gameFinished = game.play();
         }
     }
 }
