@@ -1,7 +1,6 @@
 package com.kodilla;
 
-import com.kodilla.sudoku.game.Game;
-import com.kodilla.sudoku.game.GameLevel;
+
 import com.kodilla.sudoku.game.MainMenu;
 
 

@@ -41,9 +41,7 @@ public class MainMenu {
                 }
             }
             case "5" -> System.out.println("Good bye");
-            default -> {
-                System.out.println("Not a defined operation, Exit");
-            }
+            default -> System.out.println("Not a defined operation, Exit");
         }
     }
 }
