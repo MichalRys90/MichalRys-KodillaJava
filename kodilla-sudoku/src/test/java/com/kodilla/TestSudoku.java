@@ -46,47 +46,47 @@ public class TestSudoku {
         System.out.println(sudokuBoard);
     }
 
-    @Test
-    void testEasy() throws CloneNotSupportedException {
-        //Given
-        SudokuBoard sudokuBoard = new SudokuBoard();
-        sudokuBoard.createBoard();
+//    @Test
+//    void testEasy() throws CloneNotSupportedException {
+//        //Given
+//        SudokuBoard sudokuBoard = new SudokuBoard();
+//        sudokuBoard.createBoard();
+//
+//        //When
+//        SudokuGame sudokuGame = new SudokuGame();
+//        sudokuGame.easyLevel(sudokuBoard);
+//
+//        //Then
+//        System.out.println(sudokuBoard);
+//    }
 
-        //When
-        SudokuGame sudokuGame = new SudokuGame();
-        sudokuGame.easyLevel(sudokuBoard);
+//    @Test
+//    void testNormal() throws CloneNotSupportedException {
+//        //Given
+//        SudokuBoard sudokuBoard = new SudokuBoard();
+//        sudokuBoard.createBoard();
+//
+//        //When
+//        SudokuGame sudokuGame = new SudokuGame();
+//        sudokuGame.normalLevel(sudokuBoard);
+//
+//        //Then
+//        System.out.println(sudokuBoard);
+//    }
 
-        //Then
-        System.out.println(sudokuBoard);
-    }
-
-    @Test
-    void testNormal() throws CloneNotSupportedException {
-        //Given
-        SudokuBoard sudokuBoard = new SudokuBoard();
-        sudokuBoard.createBoard();
-
-        //When
-        SudokuGame sudokuGame = new SudokuGame();
-        sudokuGame.normalLevel(sudokuBoard);
-
-        //Then
-        System.out.println(sudokuBoard);
-    }
-
-    @Test
-    void testHard() throws CloneNotSupportedException {
-        //Given
-        SudokuBoard sudokuBoard = new SudokuBoard();
-        sudokuBoard.createBoard();
-
-        //When
-        SudokuGame sudokuGame = new SudokuGame();
-        sudokuGame.hardLevel(sudokuBoard);
-
-        //Then
-        System.out.println(sudokuBoard);
-        sudokuGame.resolveSudoku(sudokuBoard);
-        System.out.println(sudokuBoard);
-    }
+//    @Test
+//    void testHard() throws CloneNotSupportedException {
+//        //Given
+//        SudokuBoard sudokuBoard = new SudokuBoard();
+//        sudokuBoard.createBoard();
+//
+//        //When
+//        SudokuGame sudokuGame = new SudokuGame();
+//        sudokuGame.hardLevel(sudokuBoard);
+//
+//        //Then
+//        System.out.println(sudokuBoard);
+//        sudokuGame.resolveSudoku(sudokuBoard);
+//        System.out.println(sudokuBoard);
+//    }
 }
