@@ -1,16 +1,15 @@
 package com.kodilla;
 
 import com.kodilla.sudoku.game.Game;
+import com.kodilla.sudoku.game.GameLevel;
+import com.kodilla.sudoku.game.MainMenu;
 
 
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException {
 
-        boolean gameFinished = false;
-        while (!gameFinished) {
-            Game game = new Game();
-            gameFinished = game.play();
-        }
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.play();
     }
 }

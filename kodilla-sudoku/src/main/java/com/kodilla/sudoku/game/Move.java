@@ -22,7 +22,7 @@ public class Move {
     }
 
     public void input(SudokuBoard sudokuBoard) throws CloneNotSupportedException {
-        SudokuGame sudokuGame = new SudokuGame(sudokuBoard);
+        SudokuGame sudokuGame = new SudokuGame();
         List<Integer> list = new ArrayList<>();
         String s = scanner.nextLine();
         while (!s.equals("SUDOKU")) {
@@ -40,7 +40,7 @@ public class Move {
             }
             for (int i = 0; i < list.size() - 2; i += 3) {
                 SudokuBoard board = sudokuBoard.deepCopy();
-                boolean check = sudokuGame.isPossiblePlace(list.get(i) - 1, list.get(i + 1) - 1, list.get(i + 2));
+                boolean check = sudokuGame.isPossiblePlace(board,list.get(i) - 1, list.get(i + 1) - 1, list.get(i + 2));
                 if (check && sudokuBoard.getRows().get(list.get(i) - 1).getCells().get(list.get(i + 1) - 1).getValue() == -1) {
                     sudokuBoard.addElement(list.get(i), list.get(i + 1), list.get(i + 2));
                     System.out.println(sudokuBoard);

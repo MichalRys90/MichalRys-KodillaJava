@@ -39,7 +39,7 @@ public class TestSudoku {
         sudokuBoard.addElement(1, 2, 3);
         sudokuBoard.addElement(1, 4, 7);
         sudokuBoard.addElement(2, 2, 9);
-        SudokuGame sudokuGame = new SudokuGame(sudokuBoard);
+        SudokuGame sudokuGame = new SudokuGame();
 
         //Then
         sudokuGame.resolveSudoku(sudokuBoard);
@@ -47,13 +47,13 @@ public class TestSudoku {
     }
 
     @Test
-    void testEasy() {
+    void testEasy() throws CloneNotSupportedException {
         //Given
         SudokuBoard sudokuBoard = new SudokuBoard();
         sudokuBoard.createBoard();
 
         //When
-        SudokuGame sudokuGame = new SudokuGame(sudokuBoard);
+        SudokuGame sudokuGame = new SudokuGame();
         sudokuGame.easyLevel(sudokuBoard);
 
         //Then
@@ -61,13 +61,13 @@ public class TestSudoku {
     }
 
     @Test
-    void testNormal() {
+    void testNormal() throws CloneNotSupportedException {
         //Given
         SudokuBoard sudokuBoard = new SudokuBoard();
         sudokuBoard.createBoard();
 
         //When
-        SudokuGame sudokuGame = new SudokuGame(sudokuBoard);
+        SudokuGame sudokuGame = new SudokuGame();
         sudokuGame.normalLevel(sudokuBoard);
 
         //Then
@@ -75,13 +75,13 @@ public class TestSudoku {
     }
 
     @Test
-    void testHard() {
+    void testHard() throws CloneNotSupportedException {
         //Given
         SudokuBoard sudokuBoard = new SudokuBoard();
         sudokuBoard.createBoard();
 
         //When
-        SudokuGame sudokuGame = new SudokuGame(sudokuBoard);
+        SudokuGame sudokuGame = new SudokuGame();
         sudokuGame.hardLevel(sudokuBoard);
 
         //Then
