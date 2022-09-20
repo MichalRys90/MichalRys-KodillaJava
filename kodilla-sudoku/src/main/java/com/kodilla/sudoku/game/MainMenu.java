@@ -14,8 +14,8 @@ public class MainMenu {
         System.out.println("Press \"1\" You will create your own sudoku " +
                 "and you will be able to check if it can be solved!");
         System.out.println("Press \"2\" easy game with 60 entered numbers");
-        System.out.println("Press \"3\" normal game with 60 entered numbers");
-        System.out.println("Press \"4\" hard game with 60 entered numbers");
+        System.out.println("Press \"3\" normal game with 40 entered numbers");
+        System.out.println("Press \"4\" hard game with 20 entered numbers");
         System.out.println("Press \"5\" exit");
         String s = scanner.nextLine();
 

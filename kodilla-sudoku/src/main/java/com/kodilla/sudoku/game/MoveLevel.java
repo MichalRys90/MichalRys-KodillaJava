@@ -48,11 +48,35 @@ public class MoveLevel {
                 }
                 SudokuBoard board = sudokuBoard.deepCopy();
                 SudokuBoard board1 = sudokuBoard.deepCopy();
-                boolean check = sudokuGame.isPossiblePlace(sudokuBoard,list.get(i) - 1, list.get(i + 1) - 1, list.get(i + 2));
-                boolean check2 = sudokuGame.resolveSudoku(board1);
-                if (check && sudokuBoard.getRows().get(list.get(i) - 1).getCells().get(list.get(i + 1) - 1).getValue() == -1 && check2) {
-                    sudokuBoard.addElement(list.get(i), list.get(i + 1), list.get(i + 2));
-                    System.out.println(sudokuBoard);
+                boolean check = sudokuGame.isPossiblePlace(board1, list.get(i) - 1, list.get(i + 1) - 1, list.get(i + 2));
+                if (check && (board1.getRows().get(list.get(i) - 1).getCells().get(list.get(i + 1) - 1).getValue() == -1)) {
+                    board1.addElement(list.get(i), list.get(i + 1), list.get(i + 2));
+                    if (sudokuGame.resolveSudoku(board1)) {
+                        sudokuBoard.addElement(list.get(i), list.get(i + 1), list.get(i + 2));
+                        System.out.println(sudokuBoard);
+                    } else {
+                        System.out.println("Impossible place, with this move you cant resolve sudoku" +
+                                "we need to go back to the previous version");
+                        board.addElement(list.get(i), list.get(i + 1), list.get(i + 2));
+                        System.out.println(board);
+                        System.out.println(sudokuBoard);
+                        counter++;
+                        if (counter == 3) {
+                            System.out.println("You lose! if you wanna play again press \"a\" \n If you wanna continue" +
+                                    "this game press: \"c\"");
+                            s = scanner.nextLine();
+                            if (s.equals("a")) {
+                                sudokuBoard = copy;
+                                counter = 0;
+                                list.clear();
+                                System.out.println(sudokuBoard);
+                            } else if (s.equals("c")) {
+                                counter = 0;
+                                list.clear();
+                                System.out.println(sudokuBoard);
+                            }
+                        }
+                    }
                 } else {
                     System.out.println("Impossible place we need to go back to the previous version ");
                     board.addElement(list.get(i), list.get(i + 1), list.get(i + 2));
