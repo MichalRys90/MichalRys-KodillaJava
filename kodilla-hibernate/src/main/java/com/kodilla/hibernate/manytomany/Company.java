@@ -5,6 +5,10 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Company.findByTheFirstThreeLetters",
+        query = "From Company WHERE SUBSTRING(name, 1, 3) = :NAME"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
