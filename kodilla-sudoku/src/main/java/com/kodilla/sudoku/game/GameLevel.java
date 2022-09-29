@@ -11,7 +11,7 @@ public class GameLevel {
     SudokuBoard sudokuBoard = new SudokuBoard();
     sudokuBoard.createBoard();
     SudokuGame sudokuGame = new SudokuGame();
-    sudokuGame.easyLevel(sudokuBoard);
+    sudokuBoard = sudokuGame.easyLevel();
     moveLevel.game(sudokuBoard);
         boolean check = sudokuGame.checkSolve(sudokuBoard);
         if (check) {
@@ -21,12 +21,14 @@ public class GameLevel {
         String s = scanner.nextLine();
         if (s.equals("y")) {
             easyGame();
+            return true;
         }
         System.out.println("Do you wanna back to menu? \"y = yes");
         s = scanner.nextLine();
         if (s.equals("y")) {
             MainMenu menu = new MainMenu();
             menu.play();
+            return true;
         }
         return true;
     }
@@ -36,7 +38,7 @@ public class GameLevel {
         SudokuBoard sudokuBoard = new SudokuBoard();
         sudokuBoard.createBoard();
         SudokuGame sudokuGame = new SudokuGame();
-        sudokuGame.normalLevel(sudokuBoard);
+        sudokuBoard = sudokuGame.normalLevel();
         moveLevel.game(sudokuBoard);
         boolean check = sudokuGame.checkSolve(sudokuBoard);
         if (check) {
@@ -46,12 +48,14 @@ public class GameLevel {
         String s = scanner.nextLine();
         if (s.equals("y")) {
             normalGame();
+            return true;
         }
         System.out.println("Do you wanna back to menu? \"y = yes");
         s = scanner.nextLine();
         if (s.equals("y")) {
             MainMenu menu = new MainMenu();
             menu.play();
+            return true;
         }
         return true;
     }
@@ -61,7 +65,7 @@ public class GameLevel {
         SudokuBoard sudokuBoard = new SudokuBoard();
         sudokuBoard.createBoard();
         SudokuGame sudokuGame = new SudokuGame();
-        sudokuGame.hardLevel(sudokuBoard);
+        sudokuBoard = sudokuGame.hardLevel();
         moveLevel.game(sudokuBoard);
         boolean check = sudokuGame.checkSolve(sudokuBoard);
         if (check) {
@@ -71,12 +75,14 @@ public class GameLevel {
         String s = scanner.nextLine();
         if (s.equals("y")) {
             hardGame();
+            return true;
         }
         System.out.println("Do you wanna back to menu? \"y = yes");
         s = scanner.nextLine();
         if (s.equals("y")) {
             MainMenu menu = new MainMenu();
             menu.play();
+            return true;
         }
         return true;
     }

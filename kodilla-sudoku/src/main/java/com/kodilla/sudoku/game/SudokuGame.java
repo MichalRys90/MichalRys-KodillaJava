@@ -72,60 +72,94 @@ public class SudokuGame {
         return !isNumberInBox(board, x, y, number) && !isNumberInColumn(board, y, number) && !isNumberInRow(board, x, number);
     }
 
-    public void easyLevel(SudokuBoard board) throws CloneNotSupportedException {
+     public SudokuBoard level() {
         Random random = new Random();
-        int counter = 0;
-
-        while (counter < 60) {
-            SudokuBoard board1 = board.deepCopy();
-            int one = random.nextInt(9);
-            int two = random.nextInt(9);
-            int three = random.nextInt(9) + 1;
-            if (isPossiblePlace(board1, one, two, three) && board.getRows().get(one).getCells().get(two).getValue() == -1) {
-                board1.addElement(one + 1, two + 1, three);
-                if (resolveSudoku(board1)) {
-                    board.addElement(one + 1, two + 1, three);
-                    counter++;
-                }
-            }
-        }
-    }
-
-    public void normalLevel(SudokuBoard board) throws CloneNotSupportedException {
-        Random random = new Random();
-        int counter = 0;
-
-        while (counter < 40) {
-            SudokuBoard board1 = board.deepCopy();
-            int one = random.nextInt(9);
-            int two = random.nextInt(9);
-            int three = random.nextInt(9) + 1;
-            if (isPossiblePlace(board1, one, two, three) && board.getRows().get(one).getCells().get(two).getValue() == -1) {
-                board1.addElement(one + 1, two + 1, three);
-                if (resolveSudoku(board1)) {
-                    board.addElement(one + 1, two + 1, three);
-                    counter++;
-                }
-            }
-        }
-    }
-
-    public void hardLevel(SudokuBoard board) throws CloneNotSupportedException {
-        Random random = new Random();
+        SudokuBoard board = new SudokuBoard();
+        board.createBoard();
         int counter = 0;
 
         while (counter < 20) {
-            SudokuBoard board1 = board.deepCopy();
             int one = random.nextInt(9);
             int two = random.nextInt(9);
             int three = random.nextInt(9) + 1;
-            if (isPossiblePlace(board1, one, two, three) && board.getRows().get(one).getCells().get(two).getValue() == -1) {
-                board1.addElement(one + 1, two + 1, three);
-                if (resolveSudoku(board1)) {
-                    board.addElement(one + 1, two + 1, three);
+            if (isPossiblePlace(board, one, two, three) && board.getRows().get(one).getCells().get(two).getValue() == -1) {
+                board.addElement(one + 1, two + 1, three);
+                counter++;
+            }
+        }
+         return board;
+     }
+
+    public SudokuBoard easyLevel() {
+        Random random = new Random();
+        SudokuBoard board = level();
+        while (!resolveSudoku(board)) {
+            board = level();
+        }
+            int counter = 0;
+            while (counter < 21) {
+                int one = random.nextInt(9);
+                int two = random.nextInt(9);
+                if (board.getRows().get(one).getCells().get(two).getValue() != -1) {
+                    board.addElement(one + 1, two + 1, SudokuElement.EMPTY);
                     counter++;
                 }
             }
-        }
+        return board;
     }
+
+    public SudokuBoard normalLevel() {
+        Random random = new Random();
+        SudokuBoard board = level();
+        while (!resolveSudoku(board)) {
+            board = level();
+        }
+        int counter = 0;
+        while (counter < 41) {
+            int one = random.nextInt(9);
+            int two = random.nextInt(9);
+            if (board.getRows().get(one).getCells().get(two).getValue() != -1) {
+                board.addElement(one + 1, two + 1, SudokuElement.EMPTY);
+                counter++;
+            }
+        }
+        return board;
+    }
+
+    public SudokuBoard hardLevel() {
+        Random random = new Random();
+        SudokuBoard board = level();
+        while (!resolveSudoku(board)) {
+            board = level();
+        }
+        int counter = 0;
+        while (counter < 61) {
+            int one = random.nextInt(9);
+            int two = random.nextInt(9);
+            if (board.getRows().get(one).getCells().get(two).getValue() != -1) {
+                board.addElement(one + 1, two + 1, SudokuElement.EMPTY);
+                counter++;
+            }
+        }
+        return board;
+    }
+
+//    public void hardLevel(SudokuBoard board) throws CloneNotSupportedException {
+//        Random random = new Random();
+//        int counter = 0;
+//
+//        while (counter < 20) {
+//            SudokuBoard board1 = board.deepCopy();
+//            int one = random.nextInt(9);
+//            int two = random.nextInt(9);
+//            int three = random.nextInt(9) + 1;
+//            if (isPossiblePlace(board1, one, two, three) && board.getRows().get(one).getCells().get(two).getValue() == -1) {
+//                board1.addElement(one + 1, two + 1, three);
+//                if (resolveSudoku(board1)) {
+//                    board.addElement(one + 1, two + 1, three);
+//                    counter++;
+//                }
+//            }
+//        }
+//    }
 }

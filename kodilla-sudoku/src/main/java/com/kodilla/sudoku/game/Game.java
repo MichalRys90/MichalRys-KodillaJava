@@ -22,12 +22,14 @@ public class Game {
         String s = scanner.nextLine();
         if (s.equals("y")) {
             play();
+            return true;
         }
         System.out.println("Do you wanna back to menu? \"y = yes");
         s = scanner.nextLine();
         if (s.equals("y")) {
             MainMenu menu = new MainMenu();
             menu.play();
+            return true;
         }
         return true;
     }

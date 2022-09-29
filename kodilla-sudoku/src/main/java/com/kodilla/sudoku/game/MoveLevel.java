@@ -56,14 +56,14 @@ public class MoveLevel {
                         System.out.println(sudokuBoard);
                     } else {
                         System.out.println("Impossible place, with this move you cant resolve sudoku" +
-                                "we need to go back to the previous version");
+                                " we need to go back to the previous version");
                         board.addElement(list.get(i), list.get(i + 1), list.get(i + 2));
                         System.out.println(board);
                         System.out.println(sudokuBoard);
                         counter++;
                         if (counter == 3) {
                             System.out.println("You lose! if you wanna play again press \"a\" \n If you wanna continue" +
-                                    "this game press: \"c\"");
+                                    " this game press: \"c\"");
                             s = scanner.nextLine();
                             if (s.equals("a")) {
                                 sudokuBoard = copy;
