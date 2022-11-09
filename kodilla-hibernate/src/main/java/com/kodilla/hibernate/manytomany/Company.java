@@ -9,6 +9,10 @@ import java.util.List;
         name = "Company.findByTheFirstThreeLetters",
         query = "From Company WHERE SUBSTRING(name, 1, 3) = :NAME"
 )
+@NamedQuery(
+        name = "Company.findForAnyString",
+        query = "From Company where name LIKE concat('%', :ANYSTRING, '%')"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

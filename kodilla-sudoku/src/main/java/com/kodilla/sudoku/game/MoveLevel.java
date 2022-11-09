@@ -85,7 +85,7 @@ public class MoveLevel {
                     counter++;
                     if (counter == 3) {
                         System.out.println("You lose! if you wanna play again press \"a\" \n If you wanna continue" +
-                                "this game press: \"c\"");
+                                " this game press: \"c\"");
                         s = scanner.nextLine();
                         if (s.equals("a")) {
                             sudokuBoard = copy;
