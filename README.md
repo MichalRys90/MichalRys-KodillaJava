@@ -20,4 +20,3 @@ https://github.com/MichalRys90/MichalRys-KodillaJava/tree/master/kodilla-sudoku
 ### Kodilla course
 
 Kodilla course imparts a great deal of knowledge. Each chapter ends with a task to complete.
-Unfortunately, each weekly chapter of Kodilla takes me several hours :(
