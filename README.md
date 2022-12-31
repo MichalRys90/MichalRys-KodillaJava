@@ -11,7 +11,7 @@ It was the first individual project. The game takes place in the console, you ca
 Spock and lizard. On an easy level, the computer has a 50% chance of losing outright. Hard is the opposite of easy.
 https://github.com/MichalRys90/MichalRys-KodillaJava/tree/master/kodilla-rps
 
-* Individual project: Sudoku
+* Individual project Sudoku:
 My favorite project because I love sudoku :)
 The task was to create a sudoku solver and the course created by the program does it. You can also generate random sudokus and solve them.
 The user can automatically finish solving the sudoku at any time.
