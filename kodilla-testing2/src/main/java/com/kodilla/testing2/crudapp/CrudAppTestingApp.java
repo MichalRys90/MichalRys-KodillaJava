@@ -16,7 +16,7 @@ public class CrudAppTestingApp {
     public static final String XPATH_WAIT_FOR = "//select[1]";
 
     public static void main(String[] args) {
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME, Duration.ofSeconds(10));
+        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get("https://michalrys90.github.io/");
 
         WebElement searchField = driver.findElement(By.xpath(XPATH_INPUT));

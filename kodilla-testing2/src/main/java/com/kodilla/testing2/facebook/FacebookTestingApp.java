@@ -27,7 +27,7 @@ public class FacebookTestingApp {
     public static final String XPATH_WAIT = "//div[contains(@class, \"large_form\")]";
 
     public static void main(String[] args) {
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME, Duration.ofSeconds(10));
+        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get("https://www.facebook.com/");
 
         driver.findElement(By.xpath(XPATH_COOKIES)).click();

@@ -12,7 +12,7 @@ public class EBayTestingApp {
     public static final String SEARCHFIELD = "_nkw";
 
     public static void main(String[] args) {
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME, Duration.ofSeconds(10));
+        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get("https://www.ebay.com/");
 
         WebElement searchField = driver.findElement(By.name(SEARCHFIELD));
